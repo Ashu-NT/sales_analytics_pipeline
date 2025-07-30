@@ -52,7 +52,7 @@ def convert_types(df: pd.DataFrame, column_types: dict) -> pd.DataFrame:
     for col, dtype in column_types.items():
         try:
             df[col] = df[col].astype(dtype)
-            logger.info(f"🔁 Converted {col} to {dtype}")
+            logger.info(f"Converted {col} to {dtype}")
         except Exception as e:
             logger.warning(f"Failed to convert {col} to {dtype}: {e}")
     return df

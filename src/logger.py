@@ -15,7 +15,7 @@ def setup_logger(name: str, log_file: str = None, level=logging.INFO) -> logging
     os.makedirs(logs_path, exist_ok=True)
 
     if not log_file:
-        log_file = os.path.join(logs_path, f"{datetime.now().strftime('%Y-%m-%d-%H-%M-%S')}.log")
+        log_file = os.path.join(logs_path,"pipeline.log")
         
     logger = logging.getLogger(name)
     logger.setLevel(level)

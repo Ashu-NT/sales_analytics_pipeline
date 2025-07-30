@@ -1,7 +1,9 @@
 import pandas as pd
 from src.logger import setup_logger
+from dotenv import load_dotenv
 
 logger = setup_logger(__name__)
+load_dotenv()
 
 def load_csv(file_path: str) -> pd.DataFrame:
     """

@@ -26,7 +26,7 @@ expected_schema = {
     "coffee_name":"object",
 }
 
-validate = DataValidator(expected_schema=expected_schema)
+validate = DataValidator(expected_columns=expected_schema)
 
 def run_etl_pipeline():
     """

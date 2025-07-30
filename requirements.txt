@@ -1,0 +1,14 @@
+numpy
+pandas
+scikit-learn
+matplotlib
+seaborn
+jupyter
+notebook
+psycopg2-binary
+sqlalchemy
+scipy
+joblib
+tensorflow
+keras
+-e .

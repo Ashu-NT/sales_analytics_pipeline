@@ -12,7 +12,6 @@ from src.logger import setup_logger
 from src.components.exception import CustomException
 
 import os
-import sys
 from dotenv import load_dotenv
 
 logger = setup_logger(__name__)

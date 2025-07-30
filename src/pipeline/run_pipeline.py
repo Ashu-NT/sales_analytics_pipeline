@@ -1,15 +1,15 @@
-from pipeline.extract import load_csv
-from pipeline.transform import (
+from src.pipeline.extract import load_csv
+from src.pipeline.transform import (
     clean_column_names,
     remove_duplicates,
     handle_missing_values,
     convert_types
 )
 
-from pipeline.validate import DataValidator
-from components.db_handler import PostgresDBHandler
+from src.pipeline.validate import DataValidator
+from src.components.db_handler import PostgresDBHandler
 from src.logger import setup_logger
-from components.exception import CustomException
+from src.components.exception import CustomException
 
 import os
 import sys
@@ -64,9 +64,4 @@ def run_etl_pipeline():
 
 if __name__ == "__main__":
  
-    # Ensure the script is run as the main module
-    if len(sys.argv) > 1 and sys.argv[1] == 'run':
-        run_etl_pipeline()
-    else:
-        logger.error("Invalid command. Use 'run' to execute the ETL pipeline.")
-        sys.exit(1)
+    run_etl_pipeline()

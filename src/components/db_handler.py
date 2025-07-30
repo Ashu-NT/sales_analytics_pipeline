@@ -1,6 +1,11 @@
 from sqlalchemy import create_engine, text
 import pandas as pd
 from src.logger import setup_logger
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env file
+load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '..', '.env'))
 
 class PostgresDBHandler:
     """
@@ -10,6 +15,12 @@ class PostgresDBHandler:
     def __init__(self, db_url: str,log_file: str = None):
         self.logger = setup_logger(__name__, log_file=log_file)
         self.logger.info("Initializing PostgresDBHandler ....")
+        
+        if not db_url:
+            db_url = os.getenv('DB_URL')
+            if not db_url:
+                self.logger.error("Database URL is not provided and not found in environment variables.")
+                raise ValueError("Database URL must be provided or set in the environment variables.")
         
         try:
             self.engine = create_engine(db_url)

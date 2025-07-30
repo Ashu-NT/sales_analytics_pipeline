@@ -11,4 +11,5 @@ scipy
 joblib
 tensorflow
 keras
+python-dotenv
 -e .

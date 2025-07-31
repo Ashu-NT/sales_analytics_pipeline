@@ -98,7 +98,7 @@ The notebook demonstrates how to import, test, and visualize each pipeline compo
 
 - **Pipeline Stages:** Modify or extend pipeline stages in `src/pipeline/` to fit your business logic.
 - **Visualizations:** Add or customize charts in `src/components/visualizer.py`.
-- **Database Settings:** Update `src/config.py` for different environments or database backends.
+- **Database Settings:** Update `.env file` for different environments or database backends.
 - **Notebook Experiments:** Use or create new notebooks in `notebooks/` for data exploration and testing.
 
 ## Contributing

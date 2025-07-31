@@ -8,4 +8,5 @@ if __name__ == "__main__":
         logger.info("ETL pipeline executed successfully.")
     except Exception as e:
         logger.error(f"ETL pipeline execution failed: {e}")
+       
         raise

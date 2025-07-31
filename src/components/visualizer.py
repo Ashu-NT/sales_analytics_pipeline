@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 from dotenv import load_dotenv
+import matplotlib.dates as mdates
 from src.logger import setup_logger
 
 load_dotenv()
@@ -32,19 +33,29 @@ class SalesVisualizer:
            
             # Set the date column as index
             df = df.copy()
+            df[date_col] = pd.to_datetime(df[date_col], errors='coerce')
             df.set_index(date_col, inplace=True)
+            monthly_sales = df.groupby(pd.Grouper(freq='M'))[sales_col].sum().reset_index()
             
+            sns.set_style("whitegrid")
             # Plotting
-            plt.figure(figsize=(12, 6))
-            sns.lineplot(data=df, x=df.index, y=sales_col)
-            plt.title('Sales Over Time')
-            plt.xlabel('Date (YYYY-MM-DD)')
+            plt.figure(figsize=(14, 7))
+            sns.lineplot(data=monthly_sales, x=date_col, y=sales_col)
+            plt.title('Monthly Sales Over Time', fontweight='bold')
+            plt.xlabel('Period')
             plt.ylabel('Sales (USD)')
             plt.xticks(rotation=45)
+            
+            plt.xticks(rotation=45, ha='right')
+            
+            ax = plt.gca()
+            ax.xaxis.set_major_locator(mdates.MonthLocator()) 
+            ax.xaxis.set_major_formatter(mdates.DateFormatter('%b %Y'))
+            
             plt.tight_layout()
             
             # Save the plot
-            output_path = os.path.join(self.plot, 'sales_over_time.png')
+            output_path = os.path.join(self.plot_dir, 'sales_over_time.png')
             plt.savefig(output_path)
             plt.close()
             

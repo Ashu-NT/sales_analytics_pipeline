@@ -30,10 +30,10 @@ class PostgresDBHandler:
             
             self.logger.info("Database connection established successfully.")
         except Exception as e:
-            self.error(f"Failed to connect to the database: {e}")
+            self.logger.error(f"Failed to connect to the database: {e}")
             raise
         
-    def write_dataframe(self, df: pd.DataFrame, table_name: str, if_exists: str = 'replace'):
+    def write_dataframe(self, df: pd.DataFrame, table_name: str, if_exists: str = 'replace') -> None:
         """
         Write a DataFrame to a PostgreSQL table.
         """
@@ -55,4 +55,28 @@ class PostgresDBHandler:
             return df
         except Exception as e:
             self.logger.error(f"Failed to execute query: {sql_query}. Error: {e}")
+            raise
+        
+    def execute_query(self, sql_query: str) -> None:
+        """
+        Execute a SQL command (e.g., INSERT, UPDATE, DELETE).
+        """
+        try:
+            with self.engine.connect() as connc:
+                connc.execute(text(sql_query))
+                connc.commit()
+            self.logger.info(f"SQL command executed successfully: {sql_query}")
+        except Exception as e:
+            self.logger.error(f"Failed to execute command: {sql_query}. Error: {e}")
+            raise
+        
+    def close(self):
+        """
+        Close the database connection.
+        """
+        try:
+            self.engine.dispose()
+            self.logger.info("Database connection closed successfully.")
+        except Exception as e:
+            self.logger.error(f"Failed to close the database connection: {e}")
             raise

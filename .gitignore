@@ -16,3 +16,8 @@ logs/
 
 plots/
 *.png
+
+
+# Jupyter Notebook Checkpoints
+**/.ipynb_checkpoints/
+.ipynb_checkpoints

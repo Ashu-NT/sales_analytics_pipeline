@@ -1,3 +1,9 @@
+## Data Source
+
+The sales data used in this project is sourced from Kaggle. Please ensure you comply with the dataset's license and terms of use. You can download the raw data from Kaggle and place it in the `data/raw/` directory as `sales_data.csv`.
+
+*Example Kaggle dataset: [Sales Data on Kaggle](https://www.kaggle.com/datasets)*
+
 
 # Sales Analytics Pipeline
 

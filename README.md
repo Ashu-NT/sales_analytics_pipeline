@@ -1,9 +1,3 @@
-## Data Source
-
-The sales data used in this project is sourced from Kaggle. Please ensure you comply with the dataset's license and terms of use. You can download the raw data from Kaggle and place it in the `data/raw/` directory as `sales_data.csv`.
-
-*Example Kaggle dataset: [Sales Data on Kaggle](https://www.kaggle.com/datasets)*
-
 
 # Sales Analytics Pipeline
 
@@ -12,6 +6,29 @@ Sales Analytics Pipeline is a professionally structured, open-source framework f
 Key strengths of this project include a clean separation of concerns, reusable and well-organized components, robust logging, and interactive Jupyter notebook support for rapid prototyping and testing. The inclusion of a single-command entry point (`main.py`) streamlines orchestration, while the clear directory structure and configuration management make it easy to adapt and extend for real-world business needs.
 
 While the pipeline already reflects many best practices found in professional data engineering projects, it is also designed to be a solid foundation for further enhancements, such as automated testing, continuous integration, and advanced documentation. Whether you're building a prototype or deploying a production solution, Sales Analytics Pipeline provides a reliable and extensible base for actionable sales insights.
+
+## Table of Contents
+
+- [Data Source](#data-source)
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+  - [Running the Pipeline (Recommended)](#1-running-the-pipeline-recommended)
+  - [Running Individual Pipeline Stages](#2-running-individual-pipeline-stages)
+  - [Interactive Module Testing](#3-interactive-module-testing)
+  - [Data and Logs](#4-data-and-logs)
+- [Customization](#customization)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Data Source
+
+The sales data used in this project is sourced from Kaggle. Please ensure you comply with the dataset's license and terms of use. You can download the raw data from Kaggle and place it in the `data/raw/` directory as `sales_data.csv`.
+
+*Example Kaggle dataset: [Sales Data on Kaggle](https://www.kaggle.com/datasets)*
 
 ## Features
 

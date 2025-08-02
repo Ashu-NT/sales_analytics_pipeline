@@ -16,6 +16,7 @@ class SalesVisualizer:
     def __init__(self, plot_dir: str = None):
         self.plot_dir = plot_dir or os.getenv('plot_path', 'plots')
         os.makedirs(self.plot_dir, exist_ok=True)
+       
          
     def plot_sales_over_time(self, df: pd.DataFrame,
                             date_col: str, 
@@ -35,7 +36,7 @@ class SalesVisualizer:
             df = df.copy()
             df[date_col] = pd.to_datetime(df[date_col], errors='coerce')
             df.set_index(date_col, inplace=True)
-            monthly_sales = df.groupby(pd.Grouper(freq='M'))[sales_col].sum().reset_index()
+            monthly_sales = df.groupby(pd.Grouper(freq='ME'))[sales_col].sum().reset_index()
             
             sns.set_style("whitegrid")
             # Plotting
@@ -53,6 +54,8 @@ class SalesVisualizer:
             ax.xaxis.set_major_formatter(mdates.DateFormatter('%b %Y'))
             
             plt.tight_layout()
+            plt.show()
+           
             
             # Save the plot
             output_path = os.path.join(self.plot_dir, 'sales_over_time.png')
@@ -82,6 +85,7 @@ class SalesVisualizer:
             plt.xlabel('Sales (USD)')
             plt.ylabel('Frequency')
             plt.tight_layout()
+            plt.show()
             
             # Save the plot
             output_path = os.path.join(self.plot_dir, 'sales_distribution.png')
@@ -116,6 +120,7 @@ class SalesVisualizer:
             plt.xlabel('Sales (USD)')
             plt.ylabel('Product')
             plt.tight_layout()
+            plt.show()
             
             # Save the plot
             output_path = os.path.join(self.plot_dir, 'top_products.png')

@@ -35,7 +35,7 @@ class DataValidator:
             if not pd.api.types.is_dtype_equal(df[col].dtype, dtype):
                 logger.warning(f"Column {col} has incorrect type: expected {dtype}, got {df[col].dtype}")
 
-    logger.info("Schema validation passed.")
+        logger.info("Schema validation passed.")
     
     def validate_nulls(self, df: pd.DataFrame):
         """

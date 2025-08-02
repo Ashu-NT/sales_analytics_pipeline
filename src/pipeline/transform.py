@@ -49,6 +49,7 @@ def convert_types(df: pd.DataFrame, column_types: dict) -> pd.DataFrame:
     Convert columns to specified data types.
     column_types: dict of {column_name: dtype}
     """
+    df = df.copy()
     for col, dtype in column_types.items():
         try:
             df[col] = df[col].astype(dtype)
